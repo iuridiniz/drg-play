@@ -66,7 +66,7 @@ Example to convert drg file to mp3 (only if SoX has support)::
 
 If SoX doesn't have support to mp3, you can do two things
 
-1. Recompile SoX with libmad or liblame support
+1. Recompile SoX with libmad or liblame.
 
 2. Use another program to convert.
    
@@ -205,6 +205,14 @@ If you want, install the man page (under /usr/local/share/man),
   $ rst2man README.rst | gzip > drgplay.1.gz
   $ sudo cp drgplay.1.gz /usr/local/share/man/man1/drgplay.1.gz
   $ sudo ln -s drgplay.1.gz /usr/local/share/man/man1/drgconvert.1.gz
+
+Links
+-----
+Open Doser
+  Another project for the same purpose: http://code.google.com/p/opendoser/
+
+Free Doser
+  Another project for the same purpose: http://www.khattam.info/tag/freedoser/
 
 TODO
 ----
