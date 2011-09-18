@@ -4,6 +4,7 @@ CHANGE LOG
 
 Version 0.3
 -----------
+* Install script
 * Support to convert drg into sbg
 
 Version 0.2
