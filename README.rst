@@ -2,75 +2,94 @@
 drgplay 
 =======
 
----------------------
+---------------
 Plays DRG files 
----------------------
+---------------
 
 :Author: Iuri Diniz - iuridiniz --at-- gmail.com
 :Homepage: http://blog.igdium.com
 :Date:   2011-09-18
-:Copyright: public domain
+:Copyright: Public Domain
+:License: Public Domain
 :Version: 0.1
 :Manual section: 1
 :Manual group: shell scripts
 
+
 Synopsis
 --------
 
-drgplay <inputfile>
+**drgplay** *inputfile*
 
 Description
 -----------
 A shell script that takes a .drg file from I-Doser and play it to 
-default sound output
+default sound output.
 
 The authors of this project have nothing to do with I-Doser, 
 I-Doser is a registered trademark.
 
 This project does not supports piracy or any illegal action, 
 the use of this product must be stricly to play .drg files on plattaforms 
-(notably Linux) that don't have I-Doser to play the drg file
+(notably Linux) that don't have I-Doser to play the drg file.
 
 I-Doser and I-Doser files (.drg) may be acquired at:
 
 * http://www.i-doser.com/
 
+Overview of pipeline
+====================
+
+This shell script is a processing chain that can be summarised as follows:
+
+    DRG input file → convert DRG into SBA → Convert SBA into RAW audio → 
+    system sound output 
+
+Options
+-------
+
+No options for while.
+
+
+
+Instalation
+-----------
 
 Requirements
-------------
+============
 In order to run, you will need:
 
 * A posix machine 
 
-  Maybe Linux or MacOS
+  Maybe Linux or MacOS.
 
 * A shell 
   
-  Bourne Againt Shell (bash) is a valid choice
+  Bourne Againt Shell (bash) is a valid choice.
 
-  Most major Linux distributions have a shell 
+  Most major Linux distributions have a shell.
 
 * drg2sbg
   
-  It transforms .drg file into .sbg file
+  It transforms .drg file into .sbg file.
   
-  You can get it from http://code.google.com/p/drg2sbg/
+  You can get it from http://code.google.com/p/drg2sbg/.
 
 * sbagen 
 
-  It transform .sbg file into .raw file
+  It transform .sbg file into .raw file.
   
-  You can get it from: http://uazu.net/sbagen/
+  You can get it from: http://uazu.net/sbagen/.
 
 * SOX 
   
-  It can play raw files
+  It can play raw files.
 
-  Available under most major Linux distributions
+  Available under most major Linux distributions.
 
 
 How to install drg2sbg under Ubuntu 11.04
------------------------------------------
+=========================================
 Install the build requiments in order to compile drg2sbg::
 
   $ sudo apt-get install build-essential libssl-dev
@@ -91,7 +110,7 @@ Install it (under /usr/local/bin)::
 
 
 How to install SBaGen under Ubuntu 11.04
-----------------------------------------
+========================================
 
 Install the build requiments in order to compile sbagen 
 (already installed if you had installed drg2gen):: 
@@ -115,10 +134,11 @@ Install it (under /usr/local/bin)::
 
 
 How to install SOX under Ubuntu 11.04
-----------------------------------------
+=====================================
 
 SOX is available under ubuntu repositories, just use apt-get::
 
   $ sudo apt-get install sox
+
 
 

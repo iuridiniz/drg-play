@@ -1,0 +1,65 @@
+#!/bin/sh
+#
+# This software is in the public domain, furnished "as is", without technical
+# support, and with no warranty, express or implied, as to its usefulness for
+# any purpose.
+#
+# Author: Iuri Diniz <iuridiniz --at-- gmail.com>
+
+#PATH=/bin:/usr/bin:/usr/local/bin
+
+BASEDIR=$( (cd -P "`dirname "$0"`" && pwd) )
+
+NAME=$( basename $0 )
+
+# adds $SRC/bin if exists
+if [ -d "$BASEDIR/bin" ]; then
+  PATH=$BASEDIR/bin:$PATH
+fi
+
+DRG2BIN=$( which drg2sbg )
+SBAGEN=$( which sbagen )
+PLAY=$( which play )
+
+usage() {
+    echo \
+         "Usage:\n" \
+         "\$ $NAME <inputfile>\n"\
+         "\n"\
+         "For complete usage, requirements and howto see manual page:\n"\
+         "\$ man $NAME\n"\
+         "\n"\
+         "Or access this url:"\
+         "https://github.com/iuridiniz/drg-play/blob/master/README.rst"
+}
+
+ERROR=0
+if [ ! -x "$DRG2BIN" ]; then
+    echo '** Cannot find the required program ``drg2bin``'
+fi
+
+if [ ! -x "$SBAGEN" ]; then
+    echo '** Cannot find the required program ``sbagen``'
+    ERROR=1
+fi
+
+if [ ! -x "$PLAY" ]; then
+    echo '** Cannot find the required program ``play`` (provided by SOX)'
+    ERROR=1
+fi
+
+if [ -z "$1" ]; then
+    ERROR=1
+fi
+
+if [ "x$ERROR" != "x0" ]; then
+    usage
+    exit $ERROR
+fi
+
+FILE="$1"
+
+# FIXME: don't trust in default rate and bits of sbagen
+"$DRG2BIN" "$FILE" | \
+    "$SBAGEN" -Q -O - | \
+    "$PLAY" -q -t raw -r 44100 -2 -s -
