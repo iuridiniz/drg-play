@@ -59,7 +59,15 @@ fi
 
 FILE="$1"
 
+SAMPLE_RATE="44100"
+SAMPLE_BITS="16"
+
+
+DRG2BIN_OPTS=""
+SBAGEN_OPTS="-Q -r $SAMPLE_RATE -b $SAMPLE_BITS -O"
+PLAY_OPTS="-q -t raw -s -r $SAMPLE_RATE -b $SAMPLE_BITS"
+
 # FIXME: don't trust in default rate and bits of sbagen
-"$DRG2BIN" "$FILE" | \
-    "$SBAGEN" -Q -O - | \
-    "$PLAY" -q -t raw -r 44100 -2 -s -
+"$DRG2BIN" $DRG2BIN_OPTS "$FILE" | \
+    "$SBAGEN" $SBAGEN_OPTS - | \
+    "$PLAY" $PLAY_OPTS -
