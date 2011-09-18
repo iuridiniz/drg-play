@@ -12,6 +12,8 @@ BASEDIR=$( (cd -P "`dirname "$0"`" && pwd) )
 
 NAME=$( basename $0 )
 
+VERSION="0.3"
+
 # adds $SRC/bin if exists
 if [ -d "$BASEDIR/bin" ]; then
   PATH=$BASEDIR/bin:$PATH
@@ -27,6 +29,7 @@ ERROR=0
 
 usage() {
     echo \
+         "drgplay version $VERSION\n" \
          "Usage:\n" \
          "\$ drgplay <inputfile>\n"\
          "\$ drgconvert <inputfile> <output>\n"\
