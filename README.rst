@@ -2,9 +2,9 @@
 drgplay 
 =======
 
----------------
-Plays DRG files 
----------------
+---------------------
+DRG Support for linux
+---------------------
 
 :Author: Iuri Diniz - iuridiniz --at-- gmail.com
 :Homepage: http://blog.igdium.com
@@ -20,10 +20,15 @@ Synopsis
 
 **drgplay** *inputfile*
 
+**drgconvert** *inputfile* *outputfile*
+
 Description
 -----------
-A program that takes a .drg file from I-Doser and play it to 
-default sound output.
+A serie of programs that take a .drg file from I-Doser and play it to 
+default sound output or convert to another format.
+
+It can convert a drg file to every output format file supported by SoX. 
+Actually, sox is used to convert.
 
 The authors of this project have nothing to do with I-Doser, 
 I-Doser is a registered trademark.
@@ -44,14 +49,41 @@ This program is a processing chain that can be summarized as follows:
     DRG input file → convert DRG into SBA → Convert SBA into RAW audio → 
     system sound output 
 
+Usage Examples
+==============
+
+Example to listen a drg file::
+  
+  $ drgplay inputfile.drg
+
+Example to convert to ogg::
+    
+  $ drgconvert inputfile.drg outputfile.ogg
+
+Example to convert drg file to mp3 (only if SoX has support)::
+
+  $ drgconvert inputfile.drg outputfile.mp3
+
+If SoX doesn't have support to mp3, you can do two things
+
+1. Recompile SoX with libmad or liblame support
+
+2. Use another program to convert.
+   
+   In this case, it's necessary to pass sampĺe frequency of 44100Hz 
+   and sample bit rate width of 16. 
+
+   Lame can be used to do this::
+      
+      $ drgconvert inputfile.drg - | lame -r -s 44.1 --bitwidth 16 - output.mp3
+
+
 Options
 -------
-
 No options for while.
 
-
 Installation
------------
+------------
 
 Requirements
 ============
@@ -81,7 +113,7 @@ In order to run, you will need:
 
 * SoX 
   
-  It can play raw files.
+  It can play and convert raw files to various formats.
 
   Available under most major Linux distributions.
 
@@ -96,8 +128,6 @@ In order to checkout the code using shell, you will need:
 * git
   
   Available under most major Linux distributions.
-
-
 
 How to install drg2sbg under Ubuntu 11.04
 =========================================
@@ -119,7 +149,6 @@ Install it (under /usr/local/bin)::
 
   $ sudo make install
 
-
 How to install SBaGen under Ubuntu 11.04
 ========================================
 
@@ -127,7 +156,6 @@ Install the build requiments in order to compile sbagen
 (already installed if you had installed drg2gen):: 
 
   $ sudo apt-get install build-essential
-
 
 Download and unpack sbagen (in this example version 1.4.5 will be used)::
 
@@ -142,7 +170,6 @@ Compile it::
 Install it (under /usr/local/bin)::
 
   $ sudo cp sbagen /usr/local/bin
-
 
 How to install SOX under Ubuntu 11.04
 =====================================
@@ -160,9 +187,7 @@ python-docutils is available under ubuntu repositories, just use apt-get::
 
 Installing drgplay
 ==================
-
 .. TODO: make an install script
-
 
 Checkout last revision of drgplay::
   
@@ -171,7 +196,9 @@ Checkout last revision of drgplay::
 
 Install it (under /usr/local/bin)::
 
-  $ sudo cp drgplay /usr/local/bin
+  $ sudo cp drgplay /usr/local/bin/drgplay
+  $ sudo ln -s drgplay /usr/local/bin/drgconvert
+  
 
 If you want, install the man page (under /usr/local/share/man), 
 *it's necessary pyhton-docutils*::
@@ -179,8 +206,8 @@ If you want, install the man page (under /usr/local/share/man),
   $ sudo mkdir -p /usr/local/share/man/man1
   $ rst2man README.rst > drgplay.1 
   $ gzip drgplay.1
-  $ sudo cp drgplay.1.gz /usr/local/share/man/man1
-
+  $ sudo cp drgplay.1.gz /usr/local/share/man/man1/drgplay.1.gz
+  $ sudo ln -s drgplay.1.gz /usr/local/share/man/man1/drgconvert.1.gz
 
 TODO
 ----

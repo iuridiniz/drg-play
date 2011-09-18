@@ -20,11 +20,16 @@ fi
 DRG2BIN=$( which drg2sbg )
 SBAGEN=$( which sbagen )
 PLAY=$( which play )
+SOX=$( which sox )
+
+CONVERT=0
+ERROR=0
 
 usage() {
     echo \
          "Usage:\n" \
-         "\$ $NAME <inputfile>\n"\
+         "\$ drgplay <inputfile>\n"\
+         "\$ drgconvert <inputfile> <output>\n"\
          "\n"\
          "For complete usage, requirements and howto see manual page:\n"\
          "\$ man $NAME\n"\
@@ -33,7 +38,10 @@ usage() {
          "https://github.com/iuridiniz/drg-play/blob/master/README.rst"
 }
 
-ERROR=0
+if [ "$NAME" = "drgconvert" ]; then
+    CONVERT=1
+fi
+
 if [ ! -x "$DRG2BIN" ]; then
     echo '** Cannot find the required program ``drg2bin``'
 fi
@@ -48,9 +56,19 @@ if [ ! -x "$PLAY" ]; then
     ERROR=1
 fi
 
+if [ ! -x "$SOX" ]; then
+    echo '** Cannot find the required program ``sox`'
+    ERROR=1
+fi
+
 if [ -z "$1" ]; then
     ERROR=1
 fi
+
+if [ "x$CONVERT" = "x1" -a -z "$2" ]; then
+    ERROR=1
+fi
+
 
 if [ "x$ERROR" != "x0" ]; then
     usage
@@ -58,16 +76,30 @@ if [ "x$ERROR" != "x0" ]; then
 fi
 
 FILE="$1"
+OUTPUT="$2"
 
 SAMPLE_RATE="44100"
 SAMPLE_BITS="16"
 
-
 DRG2BIN_OPTS=""
 SBAGEN_OPTS="-Q -r $SAMPLE_RATE -b $SAMPLE_BITS -O"
-PLAY_OPTS="-q -t raw -s -r $SAMPLE_RATE -b $SAMPLE_BITS"
+SOX_OPTS="-q -t raw -s -r $SAMPLE_RATE -b $SAMPLE_BITS"
 
-# FIXME: don't trust in default rate and bits of sbagen
+if [ "x$CONVERT" = "x1" ]; then
+
+    if [ "x$OUTPUT" = "x-" ]; then
+        "$DRG2BIN" $DRG2BIN_OPTS "$FILE" | \
+        "$SBAGEN" $SBAGEN_OPTS -
+    else
+        "$DRG2BIN" $DRG2BIN_OPTS "$FILE" | \
+        "$SBAGEN" $SBAGEN_OPTS - | \
+            "$SOX" $SOX_OPTS - "$OUTPUT"
+    fi
+    exit $?
+fi
+
 "$DRG2BIN" $DRG2BIN_OPTS "$FILE" | \
     "$SBAGEN" $SBAGEN_OPTS - | \
-    "$PLAY" $PLAY_OPTS -
+    "$PLAY" $SOX_OPTS -
+
+exit $?
