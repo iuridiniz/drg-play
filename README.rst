@@ -29,7 +29,7 @@ The authors of this project have nothing to do with I-Doser,
 I-Doser is a registered trademark.
 
 This project does not supports piracy or any illegal action, 
-the use of this product must be stricly to play .drg files on plattaforms 
+the use of this product must be strictly to play .drg files on platforms 
 (notably Linux) that don't have I-Doser to play the drg file.
 
 I-Doser and I-Doser files (.drg) may be acquired at:
@@ -39,7 +39,7 @@ I-Doser and I-Doser files (.drg) may be acquired at:
 Overview of pipeline
 ====================
 
-This program is a processing chain that can be summarised as follows:
+This program is a processing chain that can be summarized as follows:
 
     DRG input file → convert DRG into SBA → Convert SBA into RAW audio → 
     system sound output 
@@ -50,7 +50,7 @@ Options
 No options for while.
 
 
-Instalation
+Installation
 -----------
 
 Requirements
@@ -89,7 +89,7 @@ In order to install man page, you will need:
 
 * rst2man
   
-  Avaiable on python-docutils
+  Available on python-docutils
 
 In order to checkout the code using shell, you will need:
 
@@ -101,7 +101,7 @@ In order to checkout the code using shell, you will need:
 
 How to install drg2sbg under Ubuntu 11.04
 =========================================
-Install the build requiments in order to compile drg2sbg::
+Install the build requirements in order to compile drg2sbg::
 
   $ sudo apt-get install build-essential libssl-dev
 
