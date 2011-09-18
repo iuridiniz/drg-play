@@ -13,7 +13,7 @@ Plays DRG files
 :License: Public Domain
 :Version: 0.1
 :Manual section: 1
-:Manual group: shell scripts
+:Manual group: audio
 
 Synopsis
 --------
@@ -22,7 +22,7 @@ Synopsis
 
 Description
 -----------
-A shell script that takes a .drg file from I-Doser and play it to 
+A program that takes a .drg file from I-Doser and play it to 
 default sound output.
 
 The authors of this project have nothing to do with I-Doser, 
@@ -39,7 +39,7 @@ I-Doser and I-Doser files (.drg) may be acquired at:
 Overview of pipeline
 ====================
 
-This shell script is a processing chain that can be summarised as follows:
+This program is a processing chain that can be summarised as follows:
 
     DRG input file → convert DRG into SBA → Convert SBA into RAW audio → 
     system sound output 
@@ -181,3 +181,16 @@ If you want, install the man page (under /usr/local/share/man),
   $ gzip drgplay.1
   $ sudo cp drgplay.1.gz /usr/local/share/man/man1
 
+
+TODO
+----
+
+Plan for 1.0:
+
+* Transform SBaGen and drg2sbg into a lib (each one) (must be GPL libs)
+
+* Provide gstreamer plugins using these libs (must be GPL too)
+
+  * gstreamer compatible players and converters may use drg files
+
+* DRGplayer using GTK+ and C (must be GPL)
