@@ -12,7 +12,7 @@ I-Doser is a registered trademark.
 
 This project does not supports piracy or any illegal action, 
 the use of this product must be stricly to play .drg files on plattaforms 
-(notably Linux) that don't have a I-Doser to play the drg file
+(notably Linux) that don't have I-Doser to play the drg file
 
 I-Doser and I-Doser files (.drg) may be acquired at:
 
