@@ -11,7 +11,7 @@ DRG Support for linux
 :Date:   2011-09-18
 :Copyright: Public Domain
 :License: Public Domain
-:Version: 0.1
+:Version: 0.2
 :Manual section: 1
 :Manual group: audio
 
