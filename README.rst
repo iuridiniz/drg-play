@@ -15,7 +15,6 @@ Plays DRG files
 :Manual section: 1
 :Manual group: shell scripts
 
-
 Synopsis
 --------
 
@@ -51,7 +50,6 @@ Options
 No options for while.
 
 
-
 Instalation
 -----------
 
@@ -81,11 +79,24 @@ In order to run, you will need:
   
   You can get it from: http://uazu.net/sbagen/.
 
-* SOX 
+* SoX 
   
   It can play raw files.
 
   Available under most major Linux distributions.
+
+In order to install man page, you will need:
+
+* rst2man
+  
+  Avaiable on python-docutils
+
+In order to checkout the code using shell, you will need:
+
+* git
+  
+  Available under most major Linux distributions.
+
 
 
 How to install drg2sbg under Ubuntu 11.04
@@ -140,5 +151,33 @@ SOX is available under ubuntu repositories, just use apt-get::
 
   $ sudo apt-get install sox
 
+(optional) How to install python-docutils under Ubuntu 11.04
+============================================================
 
+python-docutils is available under ubuntu repositories, just use apt-get::
+
+  $ sudo apt-get install python-docutils
+
+Installing drgplay
+==================
+
+.. TODO: make an install script
+
+
+Checkout last revision of drgplay::
+  
+  $ git clone http://github.com/iuridiniz/drg-play.git
+  $ cd drg-play
+
+Install it (under /usr/local/bin)::
+
+  $ sudo cp drgplay /usr/local/bin
+
+If you want, install the man page (under /usr/local/share/man), 
+*it's necessary pyhton-docutils*::
+  
+  $ sudo mkdir -p /usr/local/share/man/man1
+  $ rst2man README.rst > drgplay.1 
+  $ gzip drgplay.1
+  $ sudo cp drgplay.1.gz /usr/local/share/man/man1
 
