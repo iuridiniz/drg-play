@@ -91,6 +91,14 @@ if [ "x$CONVERT" = "x1" ]; then
         "$DRG2BIN" $DRG2BIN_OPTS "$FILE" | \
         "$SBAGEN" $SBAGEN_OPTS -
     else
+        EXTEN=${OUTPUT#*.}
+        if [ "${#EXTEN}" = ${#OUTPUT} ]; then
+            # size of exten and output are the same, so output has no extension
+            echo '** ``$OUTPUT`` has no extension'
+            usage()
+            exit 1
+        fi
+
         "$DRG2BIN" $DRG2BIN_OPTS "$FILE" | \
         "$SBAGEN" $SBAGEN_OPTS - | \
             "$SOX" $SOX_OPTS - "$OUTPUT"

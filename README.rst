@@ -46,7 +46,7 @@ Overview of pipeline
 
 This program is a processing chain that can be summarized as follows:
 
-    DRG input file → convert DRG into SBA → Convert SBA into RAW audio → 
+    DRG input file → convert DRG into SBG → Convert SBG into RAW audio → 
     system sound output 
 
 Usage Examples
