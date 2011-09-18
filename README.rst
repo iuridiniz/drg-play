@@ -77,7 +77,6 @@ If SoX doesn't have support to mp3, you can do two things
       
       $ drgconvert inputfile.drg - | lame -r -s 44.1 --bitwidth 16 - output.mp3
 
-
 Options
 -------
 No options for while.
@@ -199,7 +198,6 @@ Install it (under /usr/local/bin)::
   $ sudo cp drgplay /usr/local/bin/drgplay
   $ sudo ln -s drgplay /usr/local/bin/drgconvert
   
-
 If you want, install the man page (under /usr/local/share/man), 
 *it's necessary pyhton-docutils*::
   
