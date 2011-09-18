@@ -1,6 +1,23 @@
-==========
-DRG - PLAY 
-==========
+=======
+drgplay 
+=======
+
+---------------------
+Plays DRG files 
+---------------------
+
+:Author: Iuri Diniz - iuridiniz --at-- gmail.com
+:Homepage: http://blog.igdium.com
+:Date:   2011-09-18
+:Copyright: public domain
+:Version: 0.1
+:Manual section: 1
+:Manual group: shell scripts
+
+Synopsis
+--------
+
+drgplay <inputfile>
 
 Description
 -----------
@@ -23,23 +40,33 @@ Requirements
 ------------
 In order to run, you will need:
 
-* A posix machine (Linux, MacOS)
+* A posix machine 
 
-* A shell (Bourne Againt Shell - bash)
+  Maybe Linux or MacOS
 
-  * Most major Linux distributions have a shell 
-
-* drg2sbg - It transforms .drg file into .sbg file
+* A shell 
   
-  * You can get it from http://code.google.com/p/drg2sbg/
+  Bourne Againt Shell (bash) is a valid choice
 
-* sbagen - It transform .sbg file into .raw file
+  Most major Linux distributions have a shell 
+
+* drg2sbg
   
-  * You can get it from: http://uazu.net/sbagen/
+  It transforms .drg file into .sbg file
+  
+  You can get it from http://code.google.com/p/drg2sbg/
 
-* SOX - It can play raw files
+* sbagen 
 
-  * Available under most major Linux distributions
+  It transform .sbg file into .raw file
+  
+  You can get it from: http://uazu.net/sbagen/
+
+* SOX 
+  
+  It can play raw files
+
+  Available under most major Linux distributions
 
 
 How to install drg2sbg under Ubuntu 11.04
