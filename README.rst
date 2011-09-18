@@ -204,8 +204,7 @@ If you want, install the man page (under /usr/local/share/man),
 *it's necessary pyhton-docutils*::
   
   $ sudo mkdir -p /usr/local/share/man/man1
-  $ rst2man README.rst > drgplay.1 
-  $ gzip drgplay.1
+  $ rst2man README.rst | gzip > drgplay.1.gz
   $ sudo cp drgplay.1.gz /usr/local/share/man/man1/drgplay.1.gz
   $ sudo ln -s drgplay.1.gz /usr/local/share/man/man1/drgconvert.1.gz
 
