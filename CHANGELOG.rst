@@ -4,11 +4,11 @@ CHANGE LOG
 
 Version 0.3
 -----------
-* Suport to convert drg to sbg
+* Support to convert drg into sbg
 
 Version 0.2
 -----------
-* Suport to convert drg to other audio files
+* Support to convert drg to other audio files
 
 Version 0.1
 -----------
