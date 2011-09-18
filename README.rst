@@ -33,7 +33,7 @@ In order to run, you will need:
   
   * You can get it from http://code.google.com/p/drg2sbg/
 
-* sbagen - It transform .sba file into .raw file
+* sbagen - It transform .sbg file into .raw file
   
   * You can get it from: http://uazu.net/sbagen/
 
