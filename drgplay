@@ -114,8 +114,17 @@ if [ "x$CONVERT" = "x1" ]; then
     exit $?
 fi
 
-"$DRG2BIN" $DRG2BIN_OPTS "$FILE" | \
-    "$SBAGEN" $SBAGEN_OPTS - | \
-    "$PLAY" $SOX_OPTS -
+BASEINPUT=$( basename "$FILE" )
+EXTEN=${BASEINPUT#*.}
+
+if [ "$EXTEN" = "sbg" ]; then
+    # support for play sbg
+    "$SBAGEN" $SBAGEN_OPTS "$FILE" | \
+        "$PLAY" $SOX_OPTS -
+else
+    "$DRG2BIN" $DRG2BIN_OPTS "$FILE" | \
+        "$SBAGEN" $SBAGEN_OPTS - | \
+        "$PLAY" $SOX_OPTS -
+fi
 
 exit $?
