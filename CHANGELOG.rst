@@ -6,6 +6,8 @@ Version 0.3
 -----------
 * Install script
 * Support to convert drg into sbg
+* Support to play sbg files
+
 
 Version 0.2
 -----------
