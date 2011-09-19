@@ -193,18 +193,9 @@ Checkout last revision of drgplay::
   $ git clone http://github.com/iuridiniz/drg-play.git
   $ cd drg-play
 
-Install it (under /usr/local/bin)::
+Install it (under /usr/local)::
 
-  $ sudo cp drgplay /usr/local/bin/drgplay
-  $ sudo ln -s drgplay /usr/local/bin/drgconvert
-  
-If you want, install the man page (under /usr/local/share/man), 
-*it's necessary pyhton-docutils*::
-  
-  $ sudo mkdir -p /usr/local/share/man/man1
-  $ rst2man README.rst | gzip > drgplay.1.gz
-  $ sudo cp drgplay.1.gz /usr/local/share/man/man1/drgplay.1.gz
-  $ sudo ln -s drgplay.1.gz /usr/local/share/man/man1/drgconvert.1.gz
+  $ sudo ./install.sh /usr/local
 
 Links
 -----
